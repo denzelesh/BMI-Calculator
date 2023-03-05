@@ -11,6 +11,16 @@ class BMIapp
         Console.WriteLine("   This application will calculate");
         Console.WriteLine("     your basal metabolic rate");
         Console.WriteLine("-----------------------------------");
+        Console.WriteLine(" "); // Message for BAME Groups
+        Console.WriteLine("For BAME groups, due genetic ");
+        Console.WriteLine("differences in the distribution");
+        Console.WriteLine("of body fat, BMI is typically ");
+        Console.WriteLine("not an accurate representation of");
+        Console.WriteLine("one's weight class, therefore these");
+        Console.WriteLine("results should be taken with caution.");
+        Console.WriteLine(" ");
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine(" ");
     }
 
 
