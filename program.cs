@@ -46,11 +46,113 @@ class BMIapp
             Console.WriteLine("Incorrect input");
             return;
         }
+        
+        double weight;
+        double height;
+
+        if (unitChoice == 1)
+        {
+            //Imperial 
+            // Imperial  Weight - (Stones)
+            Console.WriteLine("Enter your weight in stones:");
+            if (!double.TryParse(Console.ReadLine(), out double UserWeightStones))
+            {
+                //displays error if wrong data type is entered
+                Console.WriteLine("Incorrect input");    
+            }
+
+
+            // Imperial Weight - (Pounds)
+            Console.WriteLine("Enter your weight in pounds:");
+            if (!double.TryParse(Console.ReadLine(), out double UserWeightPounds))
+            {
+                //displays error if wrong data type is entered
+                Console.WriteLine("Incorrect input");
+            }
+
+
+            // Multiply by 14 to convert stones to pounds for accuracy
+            weight = (UserWeightStones * 14) + UserWeightPounds; 
+
+            // Imperial Height - (Feet)
+            Console.WriteLine("Enter your height in feet:");
+            if (!double.TryParse(Console.ReadLine(), out double UserHeightFeet))
+            {
+                //displays error if wrong data type is entered
+                Console.WriteLine("Incorrect input");
+            }
+
+            // Imperial Height - (Inches)
+            Console.WriteLine("Enter your height in inches:");
+            if (!double.TryParse(Console.ReadLine(), out double UserHeightInches))
+            {
+                //displays error if wrong data type is entered
+                Console.WriteLine("Incorrect input");
+            }
+
+            // Multiply by 12 to convert inches to feet for accuracy
+            height = (UserHeightFeet * 12) + UserHeightInches;
+            height = height * 0.0254; // convert to meters
+        }
+        else
+        // Metric
+        // Metric Weight - (Kilograms)
+        {
+            
+            Console.WriteLine("Enter your weight in kilograms:");
+            weight = Convert.ToDouble(Console.ReadLine());
+
+
+        // Metric Height - (Kilograms)
+            Console.WriteLine("Enter your height in meters:");
+            height = Convert.ToDouble(Console.ReadLine());
+        }
+
+        // Determining BMI 
+        double UserBMI = weight / (height * height);
+
+        // Determining Weight Class
+        if (UserBMI < Underweight)
+        {
+            string BMIname = "Underweight";
+            Console.WriteLine("Your weight status is:  " + BMIname);
+        }
+
+        if (UserBMI > Underweight & UserBMI < Normal)
+        {
+            string BMIname = "Normal";
+            Console.WriteLine("Your weight status is:  " + BMIname);
+        }
+
+        if (UserBMI > Normal & UserBMI < Overweight)
+        {
+            string BMIname = "Overweight";
+            Console.WriteLine("Your weight status is:  " + BMIname);
+        }
+
+        if (UserBMI > Overweight & UserBMI < ObeseClass_1)
+        {
+            string BMIname = "Obese Class 1";
+            Console.WriteLine("Your weight status is:  " + BMIname);
+        }
+
+        if (UserBMI > ObeseClass_1 & UserBMI < ObeseClass_2)
+        {
+            string BMIname = "Obese Class 2";
+            Console.WriteLine("Your weight status is:  " + BMIname);
+        }
+
+        if (UserBMI >= ObeseClass_3)
+        {
+            string BMIname = "Obese Class 3";
+            Console.WriteLine("Your weight status is:  " + BMIname);
+        }
+
 
     }
 
 
-    static void Main()  
+    static void Main()  // runs the seperate methods  
     {
         AuthorName();
         CalculateBMI();
